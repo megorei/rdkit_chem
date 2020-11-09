@@ -13,7 +13,17 @@ Gem::Specification.new do |s|
   s.description = "RDKit as a GEM".freeze
   s.email = ["annguyen@kit.edu".freeze]
   s.extensions = ["ext/rdkit_chem/extconf.rb".freeze]
-  s.files = ["Rakefile".freeze, "ext/rdkit_chem/extconf.rb".freeze, "lib/rdkit_chem.rb".freeze, "lib/rdkit_chem/version.rb".freeze, "test/test_rdkit_chem.rb".freeze]
+  s.files = [
+    "Rakefile".freeze,
+    "CMakeLists.txt".freeze,
+    "ext/rdkit_chem/extconf.rb".freeze,
+    "ext/rdkit_chem/CMakeLists.txt".freeze,
+    "lib/rdkit_chem.rb".freeze,
+    "lib/rdkit_chem/version.rb".freeze,
+    "test/test_rdkit_chem.rb".freeze,
+    Dir.glob("Code/**/*", File::FNM_DOTMATCH).reject {|f| File.directory?(f) }
+  ].flatten
+
   s.homepage = "https://github.com/CamAnNguyen/rdkit-chem".freeze
   s.licenses = ["BSD".freeze]
   s.rubygems_version = "2.7.10".freeze
